@@ -54,7 +54,7 @@ GWP100_rail_trans = nan EUR / kg
 Sden_rail_trans = nan kg / m**2
 prDM_rail_trans = 0.8 EUR / tonnes / km
 
-@context Transport, freight train {GLO} = rail_trans
+@context rail_trans = rail_trans
     [mass] -> [energy]: value * LHV_rail_trans
     [energy] -> [mass]: value / LHV_rail_trans
     [volume] -> [mass]: value * den_rail_trans
@@ -67,6 +67,28 @@ prDM_rail_trans = 0.8 EUR / tonnes / km
 @end
         
 
+# Transport, freight train {GLO}| market group for transport, freight train
+LHV_rail_trans_market = nan MJ / kg
+den_rail_trans_market = nan kg / m**3
+prV_rail_trans_market = nan EUR / m**3
+prM_rail_trans_market = nan EUR / kg
+GWP100_rail_trans_market = nan EUR / kg
+Sden_rail_trans_market = nan kg / m**2
+prDM_rail_trans_market = 1.0 EUR / tonnes / km
+
+@context rail_trans_market = rail_trans_market
+    [mass] -> [energy]: value * LHV_rail_trans_market
+    [energy] -> [mass]: value / LHV_rail_trans_market
+    [volume] -> [mass]: value * den_rail_trans_market
+    [mass] -> [volume]: value / den_rail_trans_market
+    [volume] -> [currency]: value * prV_rail_trans_market
+    [currency] -> [volume]: value / prV_rail_trans_market
+    [mass] -> [mass]: value * GWP100_rail_trans_market
+    [area] -> [mass]: value * Sden_rail_trans_market
+    [mass] * [length] -> [currency]: value * prDM_rail_trans_market
+@end
+        
+
 # Transport, freight, inland waterways, barge {GLO}
 LHV_wate_trans = nan MJ / kg
 den_wate_trans = nan kg / m**3
@@ -76,7 +98,7 @@ GWP100_wate_trans = nan EUR / kg
 Sden_wate_trans = nan kg / m**2
 prDM_wate_trans = 1.0 EUR / tonnes / km
 
-@context Transport, freight, inland waterways, barge {GLO} = wate_trans
+@context wate_trans = wate_trans
     [mass] -> [energy]: value * LHV_wate_trans
     [energy] -> [mass]: value / LHV_wate_trans
     [volume] -> [mass]: value * den_wate_trans
@@ -98,7 +120,7 @@ GWP100_land_trans = nan EUR / kg
 Sden_land_trans = nan kg / m**2
 prDM_land_trans = 1.1 EUR / tonnes / km
 
-@context Transport, freight, light commercial vehicle {GLO} = land_trans
+@context land_trans = land_trans
     [mass] -> [energy]: value * LHV_land_trans
     [energy] -> [mass]: value / LHV_land_trans
     [volume] -> [mass]: value * den_land_trans
@@ -120,7 +142,7 @@ GWP100_truck_trans = nan EUR / kg
 Sden_truck_trans = nan kg / m**2
 prDM_truck_trans = 1.0 EUR / tonnes / km
 
-@context Transport, freight, lorry, unspecified {GLO} = truck_trans
+@context truck_trans = truck_trans
     [mass] -> [energy]: value * LHV_truck_trans
     [energy] -> [mass]: value / LHV_truck_trans
     [volume] -> [mass]: value * den_truck_trans
@@ -142,7 +164,7 @@ GWP100_sea_trans = nan EUR / kg
 Sden_sea_trans = nan kg / m**2
 prDM_sea_trans = 1.0 EUR / tonnes / km
 
-@context Transport, freight, sea, container ship {GLO} = sea_trans
+@context sea_trans = sea_trans
     [mass] -> [energy]: value * LHV_sea_trans
     [energy] -> [mass]: value / LHV_sea_trans
     [volume] -> [mass]: value * den_sea_trans
@@ -155,7 +177,7 @@ prDM_sea_trans = 1.0 EUR / tonnes / km
 @end
         
 
-# Powder_coat,_steel_{GLO}
+# Powder coat, steel {GLO}
 LHV_powder = nan MJ / kg
 den_powder = nan kg / m**3
 prV_powder = nan EUR / m**3
@@ -164,7 +186,7 @@ GWP100_powder = nan EUR / kg
 Sden_powder = 0.48 kg / m**2
 prDM_powder = nan EUR / tonnes / km
 
-@context Powder_coat,_steel_{GLO} = powder
+@context powder = powder
     [mass] -> [energy]: value * LHV_powder
     [energy] -> [mass]: value / LHV_powder
     [volume] -> [mass]: value * den_powder
@@ -174,5 +196,49 @@ prDM_powder = nan EUR / tonnes / km
     [mass] -> [mass]: value * GWP100_powder
     [area] -> [mass]: value * Sden_powder
     [mass] * [length] -> [currency]: value * prDM_powder
+@end
+        
+
+# Mounting, surface mount technology, Pb-containing solder {GLO}
+LHV_mounting_surf = nan MJ / kg
+den_mounting_surf = nan kg / m**3
+prV_mounting_surf = nan EUR / m**3
+prM_mounting_surf = nan EUR / kg
+GWP100_mounting_surf = nan EUR / kg
+Sden_mounting_surf = 1.0 kg / m**2
+prDM_mounting_surf = nan EUR / tonnes / km
+
+@context mounting_surf = mounting_surf
+    [mass] -> [energy]: value * LHV_mounting_surf
+    [energy] -> [mass]: value / LHV_mounting_surf
+    [volume] -> [mass]: value * den_mounting_surf
+    [mass] -> [volume]: value / den_mounting_surf
+    [volume] -> [currency]: value * prV_mounting_surf
+    [currency] -> [volume]: value / prV_mounting_surf
+    [mass] -> [mass]: value * GWP100_mounting_surf
+    [area] -> [mass]: value * Sden_mounting_surf
+    [mass] * [length] -> [currency]: value * prDM_mounting_surf
+@end
+        
+
+# Wafer, fabricated, for integrated circuit {GLO}
+LHV_wafer_circuit = nan MJ / kg
+den_wafer_circuit = nan kg / m**3
+prV_wafer_circuit = nan EUR / m**3
+prM_wafer_circuit = nan EUR / kg
+GWP100_wafer_circuit = nan EUR / kg
+Sden_wafer_circuit = 1.0 kg / m**2
+prDM_wafer_circuit = nan EUR / tonnes / km
+
+@context wafer_circuit = wafer_circuit
+    [mass] -> [energy]: value * LHV_wafer_circuit
+    [energy] -> [mass]: value / LHV_wafer_circuit
+    [volume] -> [mass]: value * den_wafer_circuit
+    [mass] -> [volume]: value / den_wafer_circuit
+    [volume] -> [currency]: value * prV_wafer_circuit
+    [currency] -> [volume]: value / prV_wafer_circuit
+    [mass] -> [mass]: value * GWP100_wafer_circuit
+    [area] -> [mass]: value * Sden_wafer_circuit
+    [mass] * [length] -> [currency]: value * prDM_wafer_circuit
 @end
         
