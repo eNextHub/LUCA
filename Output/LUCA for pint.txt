@@ -178,46 +178,90 @@ prDM_sea_trans = 1.0 EUR / tonnes / km
         
 
 # Powder coat, steel {GLO}
-LHV_powder = nan MJ / kg
-den_powder = nan kg / m**3
-prV_powder = nan EUR / m**3
-prM_powder = nan EUR / kg
-GWP100_powder = nan EUR / kg
-Sden_powder = 0.48 kg / m**2
-prDM_powder = nan EUR / tonnes / km
+LHV_powder_GLO = nan MJ / kg
+den_powder_GLO = nan kg / m**3
+prV_powder_GLO = nan EUR / m**3
+prM_powder_GLO = nan EUR / kg
+GWP100_powder_GLO = nan EUR / kg
+Sden_powder_GLO = 0.48 kg / m**2
+prDM_powder_GLO = nan EUR / tonnes / km
 
-@context powder = powder
-    [mass] -> [energy]: value * LHV_powder
-    [energy] -> [mass]: value / LHV_powder
-    [volume] -> [mass]: value * den_powder
-    [mass] -> [volume]: value / den_powder
-    [volume] -> [currency]: value * prV_powder
-    [currency] -> [volume]: value / prV_powder
-    [mass] -> [mass]: value * GWP100_powder
-    [area] -> [mass]: value * Sden_powder
-    [mass] * [length] -> [currency]: value * prDM_powder
+@context powder_GLO = powder_GLO
+    [mass] -> [energy]: value * LHV_powder_GLO
+    [energy] -> [mass]: value / LHV_powder_GLO
+    [volume] -> [mass]: value * den_powder_GLO
+    [mass] -> [volume]: value / den_powder_GLO
+    [volume] -> [currency]: value * prV_powder_GLO
+    [currency] -> [volume]: value / prV_powder_GLO
+    [mass] -> [mass]: value * GWP100_powder_GLO
+    [area] -> [mass]: value * Sden_powder_GLO
+    [mass] * [length] -> [currency]: value * prDM_powder_GLO
+@end
+        
+
+# Powder coat, steel {RER}
+LHV_powder_RER = nan MJ / kg
+den_powder_RER = nan kg / m**3
+prV_powder_RER = nan EUR / m**3
+prM_powder_RER = nan EUR / kg
+GWP100_powder_RER = nan EUR / kg
+Sden_powder_RER = 0.48 kg / m**2
+prDM_powder_RER = nan EUR / tonnes / km
+
+@context powder_RER = powder_RER
+    [mass] -> [energy]: value * LHV_powder_RER
+    [energy] -> [mass]: value / LHV_powder_RER
+    [volume] -> [mass]: value * den_powder_RER
+    [mass] -> [volume]: value / den_powder_RER
+    [volume] -> [currency]: value * prV_powder_RER
+    [currency] -> [volume]: value / prV_powder_RER
+    [mass] -> [mass]: value * GWP100_powder_RER
+    [area] -> [mass]: value * Sden_powder_RER
+    [mass] * [length] -> [currency]: value * prDM_powder_RER
+@end
+        
+
+# Printed wiring board, for surface mounting, Pb containing surface {GLO}
+LHV_wiring_board_Pb = nan MJ / kg
+den_wiring_board_Pb = nan kg / m**3
+prV_wiring_board_Pb = nan EUR / m**3
+prM_wiring_board_Pb = nan EUR / kg
+GWP100_wiring_board_Pb = nan EUR / kg
+Sden_wiring_board_Pb = 1.0 kg / m**2
+prDM_wiring_board_Pb = nan EUR / tonnes / km
+
+@context wiring_board_Pb = wiring_board_Pb
+    [mass] -> [energy]: value * LHV_wiring_board_Pb
+    [energy] -> [mass]: value / LHV_wiring_board_Pb
+    [volume] -> [mass]: value * den_wiring_board_Pb
+    [mass] -> [volume]: value / den_wiring_board_Pb
+    [volume] -> [currency]: value * prV_wiring_board_Pb
+    [currency] -> [volume]: value / prV_wiring_board_Pb
+    [mass] -> [mass]: value * GWP100_wiring_board_Pb
+    [area] -> [mass]: value * Sden_wiring_board_Pb
+    [mass] * [length] -> [currency]: value * prDM_wiring_board_Pb
 @end
         
 
 # Mounting, surface mount technology, Pb-containing solder {GLO}
-LHV_mounting_surf = nan MJ / kg
-den_mounting_surf = nan kg / m**3
-prV_mounting_surf = nan EUR / m**3
-prM_mounting_surf = nan EUR / kg
-GWP100_mounting_surf = nan EUR / kg
-Sden_mounting_surf = 1.0 kg / m**2
-prDM_mounting_surf = nan EUR / tonnes / km
+LHV_mounting_surf_Pb = nan MJ / kg
+den_mounting_surf_Pb = nan kg / m**3
+prV_mounting_surf_Pb = nan EUR / m**3
+prM_mounting_surf_Pb = nan EUR / kg
+GWP100_mounting_surf_Pb = nan EUR / kg
+Sden_mounting_surf_Pb = 1.0 kg / m**2
+prDM_mounting_surf_Pb = nan EUR / tonnes / km
 
-@context mounting_surf = mounting_surf
-    [mass] -> [energy]: value * LHV_mounting_surf
-    [energy] -> [mass]: value / LHV_mounting_surf
-    [volume] -> [mass]: value * den_mounting_surf
-    [mass] -> [volume]: value / den_mounting_surf
-    [volume] -> [currency]: value * prV_mounting_surf
-    [currency] -> [volume]: value / prV_mounting_surf
-    [mass] -> [mass]: value * GWP100_mounting_surf
-    [area] -> [mass]: value * Sden_mounting_surf
-    [mass] * [length] -> [currency]: value * prDM_mounting_surf
+@context mounting_surf_Pb = mounting_surf_Pb
+    [mass] -> [energy]: value * LHV_mounting_surf_Pb
+    [energy] -> [mass]: value / LHV_mounting_surf_Pb
+    [volume] -> [mass]: value * den_mounting_surf_Pb
+    [mass] -> [volume]: value / den_mounting_surf_Pb
+    [volume] -> [currency]: value * prV_mounting_surf_Pb
+    [currency] -> [volume]: value / prV_mounting_surf_Pb
+    [mass] -> [mass]: value * GWP100_mounting_surf_Pb
+    [area] -> [mass]: value * Sden_mounting_surf_Pb
+    [mass] * [length] -> [currency]: value * prDM_mounting_surf_Pb
 @end
         
 
@@ -240,5 +284,49 @@ prDM_wafer_circuit = nan EUR / tonnes / km
     [mass] -> [mass]: value * GWP100_wafer_circuit
     [area] -> [mass]: value * Sden_wafer_circuit
     [mass] * [length] -> [currency]: value * prDM_wafer_circuit
+@end
+        
+
+# Mounting, surface mount technology, Pb-free solder {GLO}
+LHV_mounting_surf_Pbfree = nan MJ / kg
+den_mounting_surf_Pbfree = nan kg / m**3
+prV_mounting_surf_Pbfree = nan EUR / m**3
+prM_mounting_surf_Pbfree = nan EUR / kg
+GWP100_mounting_surf_Pbfree = nan EUR / kg
+Sden_mounting_surf_Pbfree = 1.0 kg / m**2
+prDM_mounting_surf_Pbfree = nan EUR / tonnes / km
+
+@context mounting_surf_Pbfree = mounting_surf_Pbfree
+    [mass] -> [energy]: value * LHV_mounting_surf_Pbfree
+    [energy] -> [mass]: value / LHV_mounting_surf_Pbfree
+    [volume] -> [mass]: value * den_mounting_surf_Pbfree
+    [mass] -> [volume]: value / den_mounting_surf_Pbfree
+    [volume] -> [currency]: value * prV_mounting_surf_Pbfree
+    [currency] -> [volume]: value / prV_mounting_surf_Pbfree
+    [mass] -> [mass]: value * GWP100_mounting_surf_Pbfree
+    [area] -> [mass]: value * Sden_mounting_surf_Pbfree
+    [mass] * [length] -> [currency]: value * prDM_mounting_surf_Pbfree
+@end
+        
+
+# Heat, district or industrial, other than natural gas {GLO}
+LHV_NG = 55.5 MJ / kg
+den_NG = 0.716 kg / m**3
+prV_NG = 0.4 EUR / m**3
+prM_NG = 0.558659217877095 EUR / kg
+GWP100_NG = 29.8 EUR / kg
+Sden_NG = nan kg / m**2
+prDM_NG = nan EUR / tonnes / km
+
+@context natural_gas = NG
+    [mass] -> [energy]: value * LHV_NG
+    [energy] -> [mass]: value / LHV_NG
+    [volume] -> [mass]: value * den_NG
+    [mass] -> [volume]: value / den_NG
+    [volume] -> [currency]: value * prV_NG
+    [currency] -> [volume]: value / prV_NG
+    [mass] -> [mass]: value * GWP100_NG
+    [area] -> [mass]: value * Sden_NG
+    [mass] * [length] -> [currency]: value * prDM_NG
 @end
         
