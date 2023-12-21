@@ -155,16 +155,16 @@ prDM_sea_trans = 1.0 EUR / tonnes / km
 @end
         
 
-# Powder coat, steel {GLO}
+# Powder_coat,_steel_{GLO}
 LHV_powder = nan MJ / kg
 den_powder = nan kg / m**3
 prV_powder = nan EUR / m**3
 prM_powder = nan EUR / kg
 GWP100_powder = nan EUR / kg
-Sden_powder = 12.0 kg / m**2
+Sden_powder = 0.48 kg / m**2
 prDM_powder = nan EUR / tonnes / km
 
-@context Powder coat, steel {GLO} = powder
+@context Powder_coat,_steel_{GLO} = powder
     [mass] -> [energy]: value * LHV_powder
     [energy] -> [mass]: value / LHV_powder
     [volume] -> [mass]: value * den_powder
