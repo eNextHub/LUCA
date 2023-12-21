@@ -1,10 +1,14 @@
 EUR = [currency] = euro
+tonnes_service = 1 * tonnes
 
 # Methane
 LHV_NG = 55.5 MJ / kg
 den_NG = 0.716 kg / m**3
 prV_NG = 0.4 EUR / m**3
 prM_NG = 0.558659217877095 EUR / kg
+GWP100_NG = 29.8 EUR / kg
+Sden_NG = nan kg / m**2
+prDM_NG = nan EUR / tonnes / km
 
 @context natural_gas = NG
     [mass] -> [energy]: value * LHV_NG
@@ -13,6 +17,9 @@ prM_NG = 0.558659217877095 EUR / kg
     [mass] -> [volume]: value / den_NG
     [volume] -> [currency]: value * prV_NG
     [currency] -> [volume]: value / prV_NG
+    [mass] -> [mass]: value * GWP100_NG
+    [area] -> [mass]: value * Sden_NG
+    [mass] * [length] -> [currency]: value * prDM_NG
 @end
         
 
@@ -21,6 +28,9 @@ LHV_H2 = 141.7 MJ / kg
 den_H2 = 0.09 kg / m**3
 prV_H2 = 0.09 EUR / m**3
 prM_H2 = 1.0 EUR / kg
+GWP100_H2 = 8.0 EUR / kg
+Sden_H2 = nan kg / m**2
+prDM_H2 = nan EUR / tonnes / km
 
 @context Hydrogen = H2
     [mass] -> [energy]: value * LHV_H2
@@ -29,5 +39,140 @@ prM_H2 = 1.0 EUR / kg
     [mass] -> [volume]: value / den_H2
     [volume] -> [currency]: value * prV_H2
     [currency] -> [volume]: value / prV_H2
+    [mass] -> [mass]: value * GWP100_H2
+    [area] -> [mass]: value * Sden_H2
+    [mass] * [length] -> [currency]: value * prDM_H2
+@end
+        
+
+# Transport, freight train {GLO}
+LHV_rail_trans = nan MJ / kg
+den_rail_trans = nan kg / m**3
+prV_rail_trans = nan EUR / m**3
+prM_rail_trans = nan EUR / kg
+GWP100_rail_trans = nan EUR / kg
+Sden_rail_trans = nan kg / m**2
+prDM_rail_trans = 0.8 EUR / tonnes / km
+
+@context Transport, freight train {GLO} = rail_trans
+    [mass] -> [energy]: value * LHV_rail_trans
+    [energy] -> [mass]: value / LHV_rail_trans
+    [volume] -> [mass]: value * den_rail_trans
+    [mass] -> [volume]: value / den_rail_trans
+    [volume] -> [currency]: value * prV_rail_trans
+    [currency] -> [volume]: value / prV_rail_trans
+    [mass] -> [mass]: value * GWP100_rail_trans
+    [area] -> [mass]: value * Sden_rail_trans
+    [mass] * [length] -> [currency]: value * prDM_rail_trans
+@end
+        
+
+# Transport, freight, inland waterways, barge {GLO}
+LHV_wate_trans = nan MJ / kg
+den_wate_trans = nan kg / m**3
+prV_wate_trans = nan EUR / m**3
+prM_wate_trans = nan EUR / kg
+GWP100_wate_trans = nan EUR / kg
+Sden_wate_trans = nan kg / m**2
+prDM_wate_trans = 1.0 EUR / tonnes / km
+
+@context Transport, freight, inland waterways, barge {GLO} = wate_trans
+    [mass] -> [energy]: value * LHV_wate_trans
+    [energy] -> [mass]: value / LHV_wate_trans
+    [volume] -> [mass]: value * den_wate_trans
+    [mass] -> [volume]: value / den_wate_trans
+    [volume] -> [currency]: value * prV_wate_trans
+    [currency] -> [volume]: value / prV_wate_trans
+    [mass] -> [mass]: value * GWP100_wate_trans
+    [area] -> [mass]: value * Sden_wate_trans
+    [mass] * [length] -> [currency]: value * prDM_wate_trans
+@end
+        
+
+# Transport, freight, light commercial vehicle {GLO}
+LHV_land_trans = nan MJ / kg
+den_land_trans = nan kg / m**3
+prV_land_trans = nan EUR / m**3
+prM_land_trans = nan EUR / kg
+GWP100_land_trans = nan EUR / kg
+Sden_land_trans = nan kg / m**2
+prDM_land_trans = 1.1 EUR / tonnes / km
+
+@context Transport, freight, light commercial vehicle {GLO} = land_trans
+    [mass] -> [energy]: value * LHV_land_trans
+    [energy] -> [mass]: value / LHV_land_trans
+    [volume] -> [mass]: value * den_land_trans
+    [mass] -> [volume]: value / den_land_trans
+    [volume] -> [currency]: value * prV_land_trans
+    [currency] -> [volume]: value / prV_land_trans
+    [mass] -> [mass]: value * GWP100_land_trans
+    [area] -> [mass]: value * Sden_land_trans
+    [mass] * [length] -> [currency]: value * prDM_land_trans
+@end
+        
+
+# Transport, freight, lorry, unspecified {GLO}
+LHV_truck_trans = nan MJ / kg
+den_truck_trans = nan kg / m**3
+prV_truck_trans = nan EUR / m**3
+prM_truck_trans = nan EUR / kg
+GWP100_truck_trans = nan EUR / kg
+Sden_truck_trans = nan kg / m**2
+prDM_truck_trans = 1.0 EUR / tonnes / km
+
+@context Transport, freight, lorry, unspecified {GLO} = truck_trans
+    [mass] -> [energy]: value * LHV_truck_trans
+    [energy] -> [mass]: value / LHV_truck_trans
+    [volume] -> [mass]: value * den_truck_trans
+    [mass] -> [volume]: value / den_truck_trans
+    [volume] -> [currency]: value * prV_truck_trans
+    [currency] -> [volume]: value / prV_truck_trans
+    [mass] -> [mass]: value * GWP100_truck_trans
+    [area] -> [mass]: value * Sden_truck_trans
+    [mass] * [length] -> [currency]: value * prDM_truck_trans
+@end
+        
+
+# Transport, freight, sea, container ship {GLO}
+LHV_sea_trans = nan MJ / kg
+den_sea_trans = nan kg / m**3
+prV_sea_trans = nan EUR / m**3
+prM_sea_trans = nan EUR / kg
+GWP100_sea_trans = nan EUR / kg
+Sden_sea_trans = nan kg / m**2
+prDM_sea_trans = 1.0 EUR / tonnes / km
+
+@context Transport, freight, sea, container ship {GLO} = sea_trans
+    [mass] -> [energy]: value * LHV_sea_trans
+    [energy] -> [mass]: value / LHV_sea_trans
+    [volume] -> [mass]: value * den_sea_trans
+    [mass] -> [volume]: value / den_sea_trans
+    [volume] -> [currency]: value * prV_sea_trans
+    [currency] -> [volume]: value / prV_sea_trans
+    [mass] -> [mass]: value * GWP100_sea_trans
+    [area] -> [mass]: value * Sden_sea_trans
+    [mass] * [length] -> [currency]: value * prDM_sea_trans
+@end
+        
+
+# Powder coat, steel {GLO}
+LHV_powder = nan MJ / kg
+den_powder = nan kg / m**3
+prV_powder = nan EUR / m**3
+prM_powder = nan EUR / kg
+GWP100_powder = nan EUR / kg
+Sden_powder = 12.0 kg / m**2
+prDM_powder = nan EUR / tonnes / km
+
+@context Powder coat, steel {GLO} = powder
+    [mass] -> [energy]: value * LHV_powder
+    [energy] -> [mass]: value / LHV_powder
+    [volume] -> [mass]: value * den_powder
+    [mass] -> [volume]: value / den_powder
+    [volume] -> [currency]: value * prV_powder
+    [currency] -> [volume]: value / prV_powder
+    [mass] -> [mass]: value * GWP100_powder
+    [area] -> [mass]: value * Sden_powder
+    [mass] * [length] -> [currency]: value * prDM_powder
 @end
         

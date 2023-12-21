@@ -14,7 +14,7 @@ setup(
         ],
     },
     author='Nicolò Golinucci',
-    author_email='nicolo.golinucci@example.com',
+    author_email='nicolo.golinucci@enextgen.it',
     description='Repository to create a pint-importabile historical memory of prices, heat powers, density of commodities.',
     url='https://github.com/eNextHub/LUCA',
 )
