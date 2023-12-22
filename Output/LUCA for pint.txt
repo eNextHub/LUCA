@@ -330,3 +330,25 @@ prDM_NG = nan EUR / tonnes / km
     [mass] * [length] -> [currency]: value * prDM_NG
 @end
         
+
+# Heat, district or industrial, natural gas {GLO}
+LHV_NG = 55.5 MJ / kg
+den_NG = 0.716 kg / m**3
+prV_NG = 0.4 EUR / m**3
+prM_NG = 0.558659217877095 EUR / kg
+GWP100_NG = 29.8 EUR / kg
+Sden_NG = nan kg / m**2
+prDM_NG = nan EUR / tonnes / km
+
+@context natural_gas = NG
+    [mass] -> [energy]: value * LHV_NG
+    [energy] -> [mass]: value / LHV_NG
+    [volume] -> [mass]: value * den_NG
+    [mass] -> [volume]: value / den_NG
+    [volume] -> [currency]: value * prV_NG
+    [currency] -> [volume]: value / prV_NG
+    [mass] -> [mass]: value * GWP100_NG
+    [area] -> [mass]: value * Sden_NG
+    [mass] * [length] -> [currency]: value * prDM_NG
+@end
+        
