@@ -2,7 +2,7 @@ EUR = [currency] = euro
 tonnes_service = 1 * tonnes
 
 # Methane
-LHV_NG = 55.5 MJ / kg
+LHV_NG = 53.2122905027933 MJ / kg
 den_NG = 0.716 kg / m**3
 prV_NG = 0.4 EUR / m**3
 prM_NG = 0.558659217877095 EUR / kg
