@@ -3,9 +3,9 @@ tonnes_service = 1 * tonnes
 
 # Methane
 LHV_NG = 53.2122905027933 MJ / kg
-den_NG = 0.716 kg / m**3
+den_NG = 0.712 kg / m**3
 prV_NG = 0.4 EUR / m**3
-prM_NG = 0.558659217877095 EUR / kg
+prM_NG = 0.5617977528089888 EUR / kg
 GWP100_NG = 29.8 EUR / kg
 Sden_NG = nan kg / m**2
 prDM_NG = nan EUR / tonnes / km
@@ -227,7 +227,29 @@ den_wiring_board_Pb = nan kg / m**3
 prV_wiring_board_Pb = nan EUR / m**3
 prM_wiring_board_Pb = nan EUR / kg
 GWP100_wiring_board_Pb = nan EUR / kg
-Sden_wiring_board_Pb = 1.0 kg / m**2
+Sden_wiring_board_Pb = 3.26 kg / m**2
+prDM_wiring_board_Pb = nan EUR / tonnes / km
+
+@context wiring_board_Pb = wiring_board_Pb
+    [mass] -> [energy]: value * LHV_wiring_board_Pb
+    [energy] -> [mass]: value / LHV_wiring_board_Pb
+    [volume] -> [mass]: value * den_wiring_board_Pb
+    [mass] -> [volume]: value / den_wiring_board_Pb
+    [volume] -> [currency]: value * prV_wiring_board_Pb
+    [currency] -> [volume]: value / prV_wiring_board_Pb
+    [mass] -> [mass]: value * GWP100_wiring_board_Pb
+    [area] -> [mass]: value * Sden_wiring_board_Pb
+    [mass] * [length] -> [currency]: value * prDM_wiring_board_Pb
+@end
+        
+
+# Printed wiring board, for surface mounting, Pb free surface {GLO}
+LHV_wiring_board_Pb = nan MJ / kg
+den_wiring_board_Pb = nan kg / m**3
+prV_wiring_board_Pb = nan EUR / m**3
+prM_wiring_board_Pb = nan EUR / kg
+GWP100_wiring_board_Pb = nan EUR / kg
+Sden_wiring_board_Pb = 3.26 kg / m**2
 prDM_wiring_board_Pb = nan EUR / tonnes / km
 
 @context wiring_board_Pb = wiring_board_Pb
@@ -249,7 +271,7 @@ den_mounting_surf_Pb = nan kg / m**3
 prV_mounting_surf_Pb = nan EUR / m**3
 prM_mounting_surf_Pb = nan EUR / kg
 GWP100_mounting_surf_Pb = nan EUR / kg
-Sden_mounting_surf_Pb = 1.0 kg / m**2
+Sden_mounting_surf_Pb = 0.080645 kg / m**2
 prDM_mounting_surf_Pb = nan EUR / tonnes / km
 
 @context mounting_surf_Pb = mounting_surf_Pb
@@ -271,7 +293,7 @@ den_wafer_circuit = nan kg / m**3
 prV_wafer_circuit = nan EUR / m**3
 prM_wafer_circuit = nan EUR / kg
 GWP100_wafer_circuit = nan EUR / kg
-Sden_wafer_circuit = 1.0 kg / m**2
+Sden_wafer_circuit = nan kg / m**2
 prDM_wafer_circuit = nan EUR / tonnes / km
 
 @context wafer_circuit = wafer_circuit
@@ -293,7 +315,7 @@ den_mounting_surf_Pbfree = nan kg / m**3
 prV_mounting_surf_Pbfree = nan EUR / m**3
 prM_mounting_surf_Pbfree = nan EUR / kg
 GWP100_mounting_surf_Pbfree = nan EUR / kg
-Sden_mounting_surf_Pbfree = 1.0 kg / m**2
+Sden_mounting_surf_Pbfree = 0.080645 kg / m**2
 prDM_mounting_surf_Pbfree = nan EUR / tonnes / km
 
 @context mounting_surf_Pbfree = mounting_surf_Pbfree
@@ -310,10 +332,10 @@ prDM_mounting_surf_Pbfree = nan EUR / tonnes / km
         
 
 # Heat, district or industrial, other than natural gas {GLO}
-LHV_NG = 55.5 MJ / kg
-den_NG = 0.716 kg / m**3
+LHV_NG = 53.2122905027933 MJ / kg
+den_NG = 0.712 kg / m**3
 prV_NG = 0.4 EUR / m**3
-prM_NG = 0.558659217877095 EUR / kg
+prM_NG = 0.5617977528089888 EUR / kg
 GWP100_NG = 29.8 EUR / kg
 Sden_NG = nan kg / m**2
 prDM_NG = nan EUR / tonnes / km
@@ -332,10 +354,10 @@ prDM_NG = nan EUR / tonnes / km
         
 
 # Heat, district or industrial, natural gas {GLO}
-LHV_NG = 55.5 MJ / kg
-den_NG = 0.716 kg / m**3
+LHV_NG = 53.2122905027933 MJ / kg
+den_NG = 0.712 kg / m**3
 prV_NG = 0.4 EUR / m**3
-prM_NG = 0.558659217877095 EUR / kg
+prM_NG = 0.5617977528089888 EUR / kg
 GWP100_NG = 29.8 EUR / kg
 Sden_NG = nan kg / m**2
 prDM_NG = nan EUR / tonnes / km

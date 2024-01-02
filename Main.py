@@ -57,9 +57,9 @@ prDM_{code} = {df.loc[(sN,'prDM'),name].values[0][0]} {df.loc[(sN,'prDM'),name].
 fuel_context()
 # %%
 import pint
-ureg = pint.UnitRegistry()
+LUCA = pint.UnitRegistry()
 
-ureg.load_definitions('Output\LUCA for pint.txt')
+LUCA.load_definitions('Output\LUCA for pint.txt')
 # %%
 
 mass_NG = 91 * ureg('kton')
