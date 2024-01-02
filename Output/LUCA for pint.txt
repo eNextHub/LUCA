@@ -293,7 +293,7 @@ den_wafer_circuit = nan kg / m**3
 prV_wafer_circuit = nan EUR / m**3
 prM_wafer_circuit = nan EUR / kg
 GWP100_wafer_circuit = nan EUR / kg
-Sden_wafer_circuit = nan kg / m**2
+Sden_wafer_circuit = 0.7 kg / m**2
 prDM_wafer_circuit = nan EUR / tonnes / km
 
 @context wafer_circuit = wafer_circuit
