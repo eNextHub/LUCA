@@ -1,0 +1,31 @@
+
+
+context:
+    gas:
+        equations:
+            mass_to_energy:
+              lh: mass
+              rh: energy
+              eq: value * LHV_{gas}
+
+        parameters:
+            Lower Heating Value:
+                unit: "MJ / kg"
+                abbr: LHV
+
+            Density:
+                abbr: dens 
+                unit: kg / m**3
+
+
+    transportation:
+        equations:
+            tonKM_to_EUROS:
+              lh: tonKM
+              rh: currency
+              eq: value * price_{transportation}
+
+        parameters:
+            Price:
+                unit: "EUR / tonKM"
+                abbr: Price

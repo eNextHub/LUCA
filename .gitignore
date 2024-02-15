@@ -3,8 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# personal test files
+amin_test.py 
+
 # C extensions
 *.so
+.DS_Store
 
 # Distribution / packaging
 .Python
